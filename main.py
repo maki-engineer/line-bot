@@ -41,7 +41,3 @@ def handle_message(event):
         TextSendMessage(text=event.message.text)
     )
     print("返信が完了しました。")
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80, debug=True)
