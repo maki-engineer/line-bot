@@ -34,9 +34,6 @@ QA_PROMPT_TMPL = (
 QA_PROMPT = QuestionAnswerPrompt(QA_PROMPT_TMPL)
 query_engine = index.as_query_engine(text_qa_template=QA_PROMPT)
 
-# 荒れた学級を元に戻すには？
-text = input()
-
 # ユーザーの入力文に関連する部分を抽出し、プロンプトに追加した上でユーザーの入力文をChatGPTに渡す
-response = query_engine.query(text)
+response = query_engine.query("荒れた学級を元に戻すには？")
 print(response)
