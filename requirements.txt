@@ -2,6 +2,3 @@ flask
 line-bot-sdk
 python-dotenv
 gunicorn==19.9.0
-llama_index
-langchain
-pip==23.1.2
