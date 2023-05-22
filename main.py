@@ -1,5 +1,5 @@
-import load_dotenv
 import os
+from dotenv import load_dotenv
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
@@ -7,13 +7,13 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
 load_dotenv()
 
-line_bot_api = LineBotApi(os.environ("LINE_API_KEY"))
-handler = WebhookHandler(os.environ("LINE_CHANNEL_SECRET"))
+line_bot_api = LineBotApi(os.environ["LINE_API_KEY"])
+handler = WebhookHandler(os.environ["LINE_CHANNEL_SECRET"])
 app = Flask(__name__)
 
 header = {
     "Content_type": "application/json",
-    "Authorization": "Bearer" + os.environ("LINE_API_KEY")
+    "Authorization": "Bearer" + os.environ["LINE_API_KEY"]
 }
 
 
@@ -41,3 +41,7 @@ def handle_message(event):
         TextSendMessage(text=event.message.text)
     )
     print("返信が完了しました。")
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=80, debug=True)
