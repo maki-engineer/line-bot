@@ -1,3 +1,4 @@
 flask
 line-bot-sdk
-load_dotenv
+python-dotenv
+gunicorn==19.9.0

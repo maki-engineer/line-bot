@@ -1,5 +1,5 @@
-import load_dotenv
 import os
+from dotenv import load_dotenv
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
@@ -44,7 +44,7 @@ query_engine = index.as_query_engine(text_qa_template=QA_PROMPT)
 
 header = {
     "Content_type": "application/json",
-    "Authorization": "Bearer" + os.environ("LINE_API_KEY")
+    "Authorization": "Bearer" + os.environ["LINE_API_KEY"]
 }
 
 
